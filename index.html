@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Declaration of Independence — Complete Practice Quiz</title>
+<style>
+:root{color-scheme:light;--ink:#202938;--muted:#667085;--paper:#fff;--bg:#f3f5f8;--line:#e3e7ee;--accent:#315b91;--good:#176b45;--goodbg:#eaf6ef;--bad:#a53333;--badbg:#fff0f0}
+*{box-sizing:border-box}body{margin:0;padding:28px 14px 48px;background:var(--bg);color:var(--ink);font:16px/1.55 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+main{max-width:850px;margin:auto}header{margin:0 0 22px}.eyebrow{color:var(--accent);font-size:.78rem;font-weight:750;letter-spacing:.1em;text-transform:uppercase;margin:0 0 8px}h1{font-size:clamp(1.8rem,5vw,2.5rem);line-height:1.15;margin:0}.intro{color:var(--muted);max-width:720px;margin:12px 0}
+.progress-wrap{display:flex;justify-content:space-between;gap:12px;color:var(--muted);font-size:.9rem;margin:20px 0 9px}.progress{height:8px;background:#e1e6ee;border-radius:99px;overflow:hidden}.progress>div{height:100%;width:0;background:var(--accent);transition:width .2s}
+.section-title{margin:30px 0 10px;padding:10px 14px;background:#e9eef5;border-left:4px solid var(--accent);border-radius:8px;font-size:1.05rem}
+.question{margin:13px 0;padding:19px;border:1px solid var(--line);border-radius:14px;background:var(--paper);box-shadow:0 3px 12px rgba(25,39,61,.03)}
+.question h3{font-size:1rem;line-height:1.45;margin:0 0 13px}.number{color:var(--accent);margin-right:6px}
+.option{display:flex;align-items:flex-start;gap:10px;padding:10px 12px;margin:7px 0;border:1px solid var(--line);border-radius:9px;cursor:pointer}.option:hover{background:#f8faff;border-color:#b8c9df}.option input{margin:4px 0 0;accent-color:var(--accent);flex:0 0 auto}.option span{flex:1}.option.correct{border-color:#8bc5a5;background:var(--goodbg)}.option.incorrect{border-color:#e4a0a0;background:var(--badbg)}
+.feedback{display:none;margin-top:11px;padding:11px 13px;border-radius:9px;font-size:.92rem}.feedback.show{display:block}.feedback.good{color:var(--good);background:var(--goodbg)}.feedback.bad{color:var(--bad);background:var(--badbg)}.feedback strong{display:block;margin-bottom:3px}
+.note{padding:13px 15px;border:1px solid #e5d6a5;background:#fff9e8;border-radius:10px;color:#59491e;margin:15px 0;font-size:.93rem}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin:24px 0}button{border:0;border-radius:10px;padding:12px 18px;font:inherit;font-weight:700;cursor:pointer}button:focus-visible,input:focus-visible+span{outline:3px solid #9bb8df;outline-offset:3px}.primary{color:white;background:var(--accent)}.primary:hover{background:#254a7a}.secondary{color:var(--ink);background:#e6eaf0}button:disabled{opacity:.45;cursor:not-allowed}
+#result{display:none;margin:20px 0;padding:22px;border:1px solid var(--line);border-radius:16px;background:var(--paper);text-align:center}#result.show{display:block}#score{margin:4px 0;color:var(--accent);font-size:2.2rem;font-weight:800}#result p{margin:6px 0;color:var(--muted)}footer{margin-top:26px;color:var(--muted);font-size:.85rem;text-align:center}
+@media(max-width:520px){body{padding:20px 10px 32px}.question{padding:15px}.actions button{flex:1 1 100%}}
+</style>
+</head>
+<body>
+<main>
+<header>
+<p class="eyebrow">Practice examination · Full study guide</p>
+<h1>The Declaration of Independence</h1>
+<p class="intro">This expanded quiz covers the questions in Worksheets 1, 2 and 3, plus the philosophical connections from the original practice quiz. Choose the best answer. Read the explanations after checking your work: the goal is to understand the ideas, not memorize a script.</p>
+<div class="progress-wrap"><span id="progress-text">0 of 29 answered</span><span>Multiple choice</span></div>
+<div class="progress" aria-label="Quiz completion"><div id="progress-bar"></div></div>
+</header>
+<form id="quiz" novalidate>
+<div class="section-title">Worksheet 1 — Locke and Montesquieu</div>
+<div id="worksheet1"></div>
+<div class="section-title">Worksheet 2 — Declaration of Independence</div>
+<div id="worksheet2"></div>
+<div class="section-title">Worksheet 3 — Causes of the American Revolution</div>
+<div id="worksheet3"></div>
+<div class="section-title">Additional practice — Philosophical connections</div>
+<div id="extra"></div>
+<div class="note"><strong>Study note:</strong> Worksheet 3, question 4 also asks how the Crown reacted and what cultural changes became evident. The short model answer used in this quiz explains how Enlightenment ideals intensified colonial criticism, but it does not fully specify those two additional parts. Check the class notes or ask the evaluator what examples are expected rather than memorizing an incomplete answer.</div>
+<div class="actions"><button class="primary" id="check" type="button" disabled>Check answers</button><button class="secondary" id="reset" type="reset">Start again</button></div>
+</form>
+<section id="result" aria-live="polite"><p>Your result</p><div id="score">0/29</div><p id="result-message"></p></section>
+<footer>Take your time. The goal is to understand the historical, philosophical and political connections.</footer>
+</main>
+<script>
+const groups = {
+worksheet1: [
+{q:"What is the social contract, and which philosophers are associated with this theory?",a:["A theory that explains how individuals establish political authority and government; it is associated with Hobbes, Locke and Rousseau.","A treaty between Britain and the American colonies; it is associated with Jefferson and Franklin.","An economic system based on collective ownership; it is associated with Montesquieu."],c:0,e:"The social contract explains political authority through an agreement or relationship between individuals and the government. Hobbes, Locke and Rousseau develop different versions of the theory."},
+{q:"According to the social-contract tradition, what gives political leaders legitimate authority?",a:["Their family inheritance.","The consent of the governed: authority derives from the agreement of the people.","Their ability to use military force."],c:1,e:"The consent of the governed means that legitimate political authority comes from the people who are governed."},
+{q:"Which ideas associated with John Locke influenced the Declaration of Independence?",a:["Divine right of kings and absolute monarchy.","Collective ownership of all property and abolition of government.","Natural rights, government by consent, and the people's right to alter or abolish an oppressive government."],c:2,e:"Locke defended natural rights, consent of the governed and resistance to governments that violate the rights they were created to protect. Locke's own formulation famously included life, liberty and property; the Declaration says 'Life, Liberty and the pursuit of Happiness.'"},
+{q:"Which principles are associated with classical liberalism?",a:["Individual liberty, natural rights, equality before the law, private property, religious tolerance and limited government.","Absolute monarchy, inherited political authority and unlimited state power.","Collective ownership of the means of production and the abolition of private property."],c:0,e:"Classical liberalism emphasizes individual freedom and limits on government power. Private property and religious toleration are also important themes in its development."},
+{q:"What was Montesquieu's contribution to the political ideas reflected in the US Constitution?",a:["The theory that a single ruler should control all branches of government.","The separation of powers into legislative, executive and judicial branches to prevent the concentration of power.","The idea that economic classes should be abolished."],c:1,e:"Montesquieu argued that political power should be divided among different branches so that no one institution could dominate the whole government."}
+],
+worksheet2: [
+{q:"According to the introduction, why might a people need to 'dissolve the political bands' connecting them with another?",a:["To end political ties and establish a separate political status when they believe separation is necessary.","To end all trade and communication between ordinary people.","To replace every local law with religious law."],c:0,e:"The phrase means to break political connections with another power and claim a separate and equal position among other nations."},
+{q:"Who are the 'Powers of the Earth' mentioned in the introduction?",a:["Only the British King and Parliament.","Other nations and political entities in the international community.","The judges and military officers of the colonies."],c:1,e:"The colonies say they are entitled to take their place among other political powers as a separate and equal entity."},
+{q:"Why does the Declaration say the colonists must explain their reasons to 'a candid world' or 'mankind'?",a:["To ask other countries to choose the next colonial governor.","To announce a new religious doctrine.","To explain and justify their decision to separate, seeking recognition and making their case to an international audience."],c:2,e:"The document is not only announcing separation; it is also presenting reasons intended to persuade an international audience that independence is justified."},
+{q:"What are the three unalienable rights named in the Declaration?",a:["Life, liberty and the pursuit of happiness.","Property, education and employment.","Religion, representation and taxation."],c:0,e:"The Declaration names Life, Liberty and the pursuit of Happiness. 'Unalienable' means rights that cannot legitimately be taken away."},
+{q:"Who are 'the governed' in the expression 'the consent of the governed'?",a:["Only elected members of Congress.","The people who are subject to the authority of a government.","Only the people who work for the government."],c:1,e:"The governed are the people over whom the government exercises authority."},
+{q:"What does 'consent of the governed' mean?",a:["The King gives permission to the people to make laws.","The military agrees to obey the King.","The people authorize or agree to the government's legitimate exercise of power."],c:2,e:"The phrase expresses the principle that legitimate government derives its authority from the people, rather than simply inheriting power or claiming it by force."},
+{q:"What may people do when a government becomes destructive of their rights?",a:["Alter or abolish it and establish a new government.","Accept every decision made by the ruler.","Give the government unlimited power."],c:0,e:"The Declaration says that people have the right to alter or abolish a government that becomes destructive of the ends for which it was established."},
+{q:"According to the Declaration, when can the people be justified in throwing off a government?",a:["Whenever they disagree with one minor decision.","When a long series of abuses and usurpations shows a design to subject them to tyranny.","Whenever a government has existed for many years."],c:1,e:"The text cautions against changing long-established governments for minor reasons. It presents a prolonged pattern of abuses and a design toward despotism as grounds for resistance."},
+{q:"How did the King allegedly hurt the colonies economically?",a:["By giving every colonist equal access to land and trade.","By ending all taxes and encouraging colonial manufacturing.","By imposing taxes without colonial consent and restricting trade with other parts of the world."],c:2,e:"The grievances include taxation without consent and cutting off colonial trade."},
+{q:"How did the King allegedly hurt the colonies militarily?",a:["By keeping standing armies among the colonists without the consent of their legislatures and using military force against them.","By allowing colonial assemblies to control all British troops.","By refusing to maintain any military presence in the colonies."],c:0,e:"The Declaration objects to standing armies maintained without colonial consent and describes military actions against colonial towns and people."},
+{q:"How did the King allegedly violate the colonies' political and legal rights?",a:["By allowing the colonies complete independence before 1776.","By interfering with representative assemblies, obstructing legislation and undermining the administration of justice.","By giving every colonist a seat in Parliament."],c:1,e:"The grievances include dissolving representative houses, interfering with laws and making judges dependent on the King's will."},
+{q:"How does the Declaration describe the King's response to colonial petitions?",a:["He immediately accepted all their demands.","He invited the colonists to govern Britain.","Their repeated petitions were answered only by repeated injury."],c:2,e:"The colonists claim that they repeatedly sought redress, but their appeals were met with further mistreatment. 'Redress' means correcting an injustice."},
+{q:"Who are the 'British brethren' mentioned in the Declaration?",a:["The British people, with whom the colonists claimed shared historical and cultural connections.","The soldiers serving in the colonial armies.","The representatives of France and Spain."],c:0,e:"'Brethren' means brothers or fellow members of a community. Here it refers to the British people, whom the colonists say they had also warned and appealed to."},
+{q:"What do the signers pledge to one another at the end of the Declaration?",a:["Their land, political offices and military weapons.","Their lives, their fortunes and their sacred honor.","Their loyalty to the British Crown."],c:1,e:"The final pledge emphasizes the seriousness of their commitment and their willingness to risk their lives and possessions for independence."}
+],
+worksheet3: [
+{q:"What was the situation between Britain and the American colonies after the French and Indian War, and what increased tensions?",a:["Britain sought to tighten imperial control and raise revenue after the costly war; colonists resented taxes and restrictions imposed without their representation or consent.","Britain immediately granted the colonies independence, but the colonists wanted to remain British.","The colonies had no economic or political disagreements with Britain."],c:0,e:"After the French and Indian War (1754–1763), Britain faced significant debts and sought revenue and tighter control. Colonial opposition grew over taxation, trade restrictions and lack of representation in Parliament."},
+{q:"How did the Boston Tea Party bring anti-mercantilist sentiment to light?",a:["It was a celebration of British control over colonial trade.","It protested British taxation and commercial control, making colonial opposition to mercantilist policies more visible.","It ended all trade between the colonies and Europe permanently."],c:1,e:"The protest demonstrated opposition to British taxation and control over colonial trade, and it became a visible symbol of resistance to policies that favored British commercial interests."},
+{q:"What impact did the closure of Boston Harbor have on the colonies?",a:["It affected only the British government and had no effect on colonial relations.","It immediately ended the Revolutionary War.","It damaged Boston's economy and increased tensions across the colonies, as other colonies viewed the punishment as a threat to their own rights."],c:2,e:"Britain closed Boston Harbor through the Coercive Acts (also called the Intolerable Acts) after the Boston Tea Party. The measure harmed Boston and encouraged solidarity and resistance elsewhere."},
+{q:"What role did Enlightenment ideals play in the growing tensions?",a:["They encouraged colonists to question absolute monarchy and defend natural rights, liberty and government by consent, helping them challenge British authority and justify self-government.","They taught that kings should have unlimited power and that people should never question authority.","They argued that political participation should be restricted to hereditary nobles."],c:0,e:"Enlightenment ideas supplied a language for criticizing arbitrary power and defending rights and consent. Note: the worksheet's question also asks how the Crown reacted and what cultural changes became evident; the model answer supplied for this quiz does not fully cover those two parts, so consult the student's class notes for the expected examples."}
+],
+extra: [
+{q:"What is the fundamental difference between Hobbes and Locke regarding political authority?",a:["Hobbes emphasizes a powerful sovereign to preserve order, while Locke argues that government must protect natural rights and derive authority from consent.","Hobbes believes in popular sovereignty, while Locke supports absolute monarchy.","Both believe that governments should have unlimited power."],c:0,e:"Hobbes prioritizes security and order; Locke emphasizes individual rights, consent and limits on government."},
+{q:"Why is the Declaration associated with popular sovereignty?",a:["Because the King granted independence to the colonies.","Because it argues that legitimate government derives its power from the consent of the governed.","Because Parliament retains supreme authority over the colonies."],c:1,e:"Popular sovereignty means that the source of legitimate political authority is the people, not an unquestionable monarch."},
+{q:"Does 'all men are created equal' mean that the Declaration established economic equality?",a:["Yes. It established collective ownership of property.","Yes. It abolished slavery and social classes in 1776.","No. It expressed a principle of equal natural rights, not equal distribution of wealth; slavery and other inequalities continued."],c:2,e:"The Declaration's equality principle did not establish economic equality or equal rights in practice. Enslaved people remained enslaved, and women and Indigenous peoples were excluded from equal political standing."},
+{q:"What is the connection between Montesquieu and the US Constitution?",a:["His theory of separation of powers influenced the division of government into legislative, executive and judicial branches.","He argued that the King should retain absolute power.","He proposed collective ownership of the means of production."],c:0,e:"Montesquieu argued that dividing political power helps prevent tyranny. The US constitutional system includes separated branches and checks and balances."},
+{q:"Is the Declaration of Independence a communist document?",a:["Yes, because any mention of equality is communist.","No. Its political principles are much closer to Enlightenment classical liberalism and individual natural rights; it does not propose collective ownership of the means of production.","Yes, because it abolishes private property."],c:1,e:"The Declaration is not a communist document. Communism developed as a distinct political and economic ideology later, especially in the nineteenth century. The Declaration's equality language concerns natural and political rights, not collective ownership."},
+{q:"Why did the colonists believe they had the right to separate from Britain?",a:["Because Locke argued that people could alter or abolish a government that violated their rights, and the Declaration presents British rule as a prolonged pattern of abuses.","Because Hobbes argued that all governments should be abolished.","Because Montesquieu rejected the existence of government."],c:0,e:"The Declaration applies a Lockean argument: when government violates the rights it should protect and becomes oppressive, people may change or replace it."}
+]
+};
+
+const allQuestions = [];
+let globalIndex = 0;
+for (const [groupName, items] of Object.entries(groups)) {
+  const target = document.getElementById(groupName);
+  items.forEach(item => {
+    const index = globalIndex++;
+    allQuestions.push(item);
+    const section = document.createElement('section');
+    section.className = 'question';
+    section.dataset.index = index;
+    const title = document.createElement('h3');
+    title.innerHTML = `<span class="number">${index + 1}.</span>${item.q}`;
+    section.appendChild(title);
+    item.a.forEach((answer, optionIndex) => {
+      const label = document.createElement('label');
+      label.className = 'option';
+      const input = document.createElement('input');
+      input.type = 'radio';
+      input.name = `q${index}`;
+      input.value = optionIndex;
+      const span = document.createElement('span');
+      span.textContent = answer;
+      label.append(input, span);
+      section.appendChild(label);
+    });
+    const feedback = document.createElement('div');
+    feedback.className = 'feedback';
+    feedback.setAttribute('aria-live', 'polite');
+    section.appendChild(feedback);
+    target.appendChild(section);
+  });
+}
+const quiz = document.getElementById('quiz');
+const questionEls = [...document.querySelectorAll('.question')];
+const checkButton = document.getElementById('check');
+const progressText = document.getElementById('progress-text');
+const progressBar = document.getElementById('progress-bar');
+const result = document.getElementById('result');
+const resetButton = document.getElementById('reset');
+let checked = false;
+
+function updateProgress() {
+  const answered = questionEls.filter((q, i) => quiz.querySelector(`input[name="q${i}"]:checked`)).length;
+  progressText.textContent = `${answered} of ${allQuestions.length} answered`;
+  progressBar.style.width = `${answered / allQuestions.length * 100}%`;
+  checkButton.disabled = answered !== allQuestions.length || checked;
+}
+quiz.addEventListener('change', updateProgress);
+checkButton.addEventListener('click', () => {
+  if (checked) return;
+  checked = true;
+  let score = 0;
+  questionEls.forEach((question, index) => {
+    const item = allQuestions[index];
+    const selected = question.querySelector(`input[name="q${index}"]:checked`);
+    const feedback = question.querySelector('.feedback');
+    const labels = [...question.querySelectorAll('.option')];
+    labels.forEach((label, optionIndex) => {
+      label.classList.remove('correct', 'incorrect');
+      if (optionIndex === item.c) label.classList.add('correct');
+    });
+    if (Number(selected.value) === item.c) {
+      score++;
+      feedback.className = 'feedback show good';
+      feedback.innerHTML = `<strong>Correct!</strong>${item.e}`;
+    } else {
+      selected.closest('.option').classList.add('incorrect');
+      feedback.className = 'feedback show bad';
+      feedback.innerHTML = `<strong>Not quite. Correct answer: ${item.a[item.c]}</strong>${item.e}`;
+    }
+  });
+  document.querySelectorAll('.option input').forEach(input => input.disabled = true);
+  document.getElementById('score').textContent = `${score}/${allQuestions.length}`;
+  const percent = score / allQuestions.length;
+  document.getElementById('result-message').textContent =
+    percent === 1 ? 'Excellent! You understand the connections very well.' :
+    percent >= .8 ? 'Very good work. Review the explanations for the questions you missed.' :
+    percent >= .6 ? 'Good progress. Revisit the relevant worksheet sections and try again.' :
+    'Keep studying. Focus on the explanations and the links between the historical and philosophical ideas.';
+  result.classList.add('show');
+  checkButton.disabled = true;
+  result.scrollIntoView({behavior:'smooth',block:'center'});
+});
+resetButton.addEventListener('click', () => {
+  checked = false;
+  document.querySelectorAll('.option input').forEach(input => input.disabled = false);
+  questionEls.forEach(q => {
+    q.querySelectorAll('.option').forEach(label => label.classList.remove('correct','incorrect'));
+    const feedback = q.querySelector('.feedback');
+    feedback.className = 'feedback';
+    feedback.textContent = '';
+  });
+  result.classList.remove('show');
+  updateProgress();
+});
+updateProgress();
+</script>
+</body>
+</html>
